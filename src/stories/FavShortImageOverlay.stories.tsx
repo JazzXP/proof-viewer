@@ -4,7 +4,7 @@ import { FavShortImageOverlay } from "../components/FavShortImageOverlay";
 import { ThemeProvider } from "styled-components";
 
 export default {
-  title: "Image",
+  title: "Controls",
   component: FavShortImageOverlay,
 };
 

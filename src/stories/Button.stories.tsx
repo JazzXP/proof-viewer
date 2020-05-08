@@ -5,7 +5,7 @@ import { ThemeProvider } from "styled-components";
 import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 
 export default {
-  title: "Button",
+  title: "Controls",
   component: Button,
 };
 
