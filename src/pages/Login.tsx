@@ -1,14 +1,13 @@
 import React, { createRef } from "react";
 import { Link, Error, Heading, Input, Submit, BorderForm } from "../components";
-import theme from "../Theme";
 
 export interface LoginProps {
   error?: string;
-  onLogin?: (username?: string, password?: string) => void;
+  onLogin?: (email?: string, password?: string) => void;
 }
 
 export const Login = (props: LoginProps) => {
-  const usernameRef = createRef<HTMLInputElement>();
+  const emailRef = createRef<HTMLInputElement>();
   const passwordRef = createRef<HTMLInputElement>();
 
   return (
@@ -21,7 +20,7 @@ export const Login = (props: LoginProps) => {
         }}
         onSubmit={(event) => {
           props.onLogin?.(
-            usernameRef?.current?.value,
+            emailRef?.current?.value,
             passwordRef?.current?.value
           );
           event.preventDefault();
@@ -43,9 +42,8 @@ export const Login = (props: LoginProps) => {
             margin: "16px auto",
             width: "100%",
           }}
-          placeholder="Username"
-          name="username"
-          ref={usernameRef}
+          placeholder="Email"
+          ref={emailRef}
         />
         <Input
           style={{
@@ -55,7 +53,6 @@ export const Login = (props: LoginProps) => {
           }}
           placeholder="Password"
           type="password"
-          name="password"
           ref={passwordRef}
         />
         <Submit style={{ margin: "auto", display: "block" }} />

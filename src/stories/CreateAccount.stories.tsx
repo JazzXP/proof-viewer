@@ -1,5 +1,5 @@
 import React from "react";
-import { Login } from "../pages/Login";
+import { CreateAccount } from "../pages/CreateAccount";
 import { ThemeProvider } from "styled-components";
 import { addDecorator } from "@storybook/react";
 import StoryRouter from "storybook-react-router";
@@ -8,11 +8,11 @@ addDecorator(StoryRouter());
 
 export default {
   title: "Pages",
-  component: Login,
+  component: CreateAccount,
 };
 
-export const LoginPage = () => (
+export const CreateAccountPage = () => (
   <ThemeProvider theme={{ mode: "dark" }}>
-    <Login error="Invalid email address and/or password" />
+    <CreateAccount error="Account for this email address exists" />
   </ThemeProvider>
 );
