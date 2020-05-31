@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import auth0Client from "./auth/Auth";
+import logo from "../logo.svg";
+import "../App.css";
+import auth0Client from "../auth/Auth";
 
 const Home = (props: any) => {
   useEffect(() => {

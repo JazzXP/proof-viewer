@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import Callback from "./auth/Callback";
-import Home from "./Home";
+import Home from "./pages/Home";
 import "./App.css";
 
 function App() {
