@@ -9,7 +9,8 @@ import {
 } from "../components";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { UserData } from "../state/userdata";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { addFavourite, addShortlist } from "../state";
 
 const StyledSection = styled.section`
   display: flex;
@@ -38,6 +39,7 @@ export const Proofs = () => {
   const favlist = useSelector<UserData, string[]>((state) => state.favourites);
   const imageList = useSelector<UserData, string[]>((state) => state.proofs);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const dispatch = useDispatch();
 
   const moveNext = () => {
     if (currentImageIndex < imageList.length - 1) {
@@ -75,8 +77,12 @@ export const Proofs = () => {
         />
         <FavShortImageOverlay
           imageUrl={imageList[currentImageIndex]}
-          onClickFav={(event) => {}}
-          onClickShortlist={(event) => {}}
+          onClickFav={() => {
+            dispatch(addFavourite(imageList[currentImageIndex]));
+          }}
+          onClickShortlist={() => {
+            dispatch(addShortlist(imageList[currentImageIndex]));
+          }}
         />
         <IconButton
           icon={faArrowRight}
