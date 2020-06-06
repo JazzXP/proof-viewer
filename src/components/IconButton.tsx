@@ -9,6 +9,7 @@ export interface IconButtonProps {
   style?: any;
   children?: ReactChild;
   onClick: EventHandler<MouseEvent>;
+  disabled?: boolean;
 }
 
 enum buttonState {
@@ -35,15 +36,19 @@ const StyledButton = styled.button`
     background: ${theme.button.focused?.background ?? theme.button.background};
     color: ${theme.button.focused?.foreground ?? theme.button.foreground};
   }
+  &:disabled {
+    background: ${theme.button.disabled?.background ?? theme.button.background};
+    color: ${theme.button.disabled?.foreground ?? theme.button.foreground};
+  }
 `;
 
 export const IconButton = (props: IconButtonProps) => {
   return (
-    <StyledButton onClick={props.onClick}>
+    <StyledButton onClick={props.onClick} disabled={props.disabled}>
       <FontAwesomeIcon
         icon={props.icon}
         color={theme.button.foreground(props)}
-        style={{ paddingRight: "5px" }}
+        style={{ paddingRight: props.children ? 5 : 0 }}
       />
       {props.children}
     </StyledButton>

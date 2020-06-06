@@ -17,6 +17,10 @@ export interface Theme {
       foreground?: theme.ThemeSet;
       background?: theme.ThemeSet;
     };
+    disabled?: {
+      foreground: theme.ThemeSet;
+      background: theme.ThemeSet;
+    };
   };
   list: {
     foreground: theme.ThemeSet;
@@ -48,6 +52,9 @@ export default <Theme>{
     },
     hover: {
       background: theme("mode", { dark: "rgba(255, 255, 255, 0.3)" }),
+    },
+    disabled: {
+      background: theme("mode", { dark: "rgba(192, 192, 192, 1)" }),
     },
   },
   list: {
