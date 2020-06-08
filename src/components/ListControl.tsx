@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef, Ref } from "react";
 import styled from "styled-components";
 import theme from "../Theme";
 
@@ -13,10 +13,14 @@ const StyledList = styled.select`
   color: ${theme.button.foreground};
 `;
 
-export const ListControl = (props: ListControlProps) => (
-  <StyledList size={2} multiple={true}>
-    {props.items.map((item) => {
-      return <option key={item}>{item}</option>;
-    })}
-  </StyledList>
+export const ListControl = forwardRef<HTMLSelectElement, ListControlProps>(
+  (props, ref) => {
+    return (
+      <StyledList size={2} multiple={false} ref={ref}>
+        {props.items.map((item) => {
+          return <option key={item}>{item}</option>;
+        })}
+      </StyledList>
+    );
+  }
 );

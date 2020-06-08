@@ -1,16 +1,21 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import useEventListener from "@use-it/event-listener";
 import {
   FavShortImageOverlay,
-  ListControl,
+  ListControlWithButtons,
   IconButton,
   Heading,
 } from "../components";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { UserData } from "../state/userdata";
 import { useSelector, useDispatch } from "react-redux";
-import { addFavourite, addShortlist } from "../state";
+import {
+  addFavourite,
+  addShortlist,
+  removeShortlist,
+  removeFavourite,
+} from "../state";
 
 const StyledSection = styled.section`
   display: flex;
@@ -35,9 +40,12 @@ const StyledArticle = styled.article`
 `;
 
 export const Proofs = () => {
-  const shortlist = useSelector<UserData, string[]>((state) => state.shortlist);
-  const favlist = useSelector<UserData, string[]>((state) => state.favourites);
-  const imageList = useSelector<UserData, string[]>((state) => state.proofs);
+  const shortlist =
+    useSelector<UserData, string[]>((state) => state.shortlist) ?? [];
+  const favlist =
+    useSelector<UserData, string[]>((state) => state.favourites) ?? [];
+  const imageList =
+    useSelector<UserData, string[]>((state) => state.proofs) ?? [];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const dispatch = useDispatch();
 
@@ -94,9 +102,33 @@ export const Proofs = () => {
       </StyledArticle>
       <StyledArticleVertical>
         <Heading type="h2">Shortlist</Heading>
-        <ListControl items={shortlist} />
+        <ListControlWithButtons
+          items={shortlist}
+          onRemove={(item?: string) => {
+            if (item) {
+              dispatch(removeShortlist(item));
+            }
+          }}
+          onGoTo={(item?: string) => {
+            if (item) {
+              setCurrentImageIndex(imageList.indexOf(item));
+            }
+          }}
+        />
         <Heading type="h2">Favourites</Heading>
-        <ListControl items={favlist} />
+        <ListControlWithButtons
+          items={favlist}
+          onRemove={(item?: string) => {
+            if (item) {
+              dispatch(removeFavourite(item));
+            }
+          }}
+          onGoTo={(item?: string) => {
+            if (item) {
+              setCurrentImageIndex(imageList.indexOf(item));
+            }
+          }}
+        />
       </StyledArticleVertical>
     </StyledSection>
   );

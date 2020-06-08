@@ -1,8 +1,6 @@
 import React from "react";
-import { action } from "@storybook/addon-actions";
 import { ListControl } from "../components/ListControl";
 import { ThemeProvider } from "styled-components";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 
 export default {
   title: "Controls",

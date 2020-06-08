@@ -1,8 +1,8 @@
-import React, { ReactChild } from "react";
+import React, { ReactElement } from "react";
 
 export interface OverlayImageProps {
   imageUrl: string;
-  children: ReactChild;
+  children: ReactElement;
 }
 
 export const OverlayImage = (props: OverlayImageProps) => {
