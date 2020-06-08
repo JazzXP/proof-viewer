@@ -8,7 +8,7 @@ import {
   Heading,
 } from "../components";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { UserData } from "../state/userdata";
+import { UserData } from "../state/UserData";
 import { useSelector, useDispatch } from "react-redux";
 import {
   addFavourite,

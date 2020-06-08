@@ -1,4 +1,4 @@
-import { UserData } from "./userdata";
+import { UserData } from "./UserData";
 import { UserDataAction, UserDataActions } from "./UserData-actions";
 
 export default (
