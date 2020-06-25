@@ -1,9 +1,10 @@
-import { UserData } from "./UserData";
-import { UserDataAction, UserDataActions } from "./UserData-actions";
+import { UserData } from './UserData';
+import { UserDataAction, UserDataActions } from './UserData-actions';
 
 export default (
   state: UserData = {
     proofs: [],
+    thumbnails: [],
     shortlist: [],
     favourites: [],
   },
@@ -14,6 +15,10 @@ export default (
       return {
         ...state,
         proofs: action.data,
+        thumbnails: action.data.map(
+          (item) =>
+            `${item.substring(0, item.lastIndexOf('/'))}/thumbnails/${item.substring(item.lastIndexOf('/') + 1)}`
+        ),
       };
     case UserDataActions.ADD_FAVOURITE:
       return {

@@ -1,10 +1,10 @@
-import React from "react";
-import { Provider } from "react-redux";
-import { store } from "./state/store";
-import { Route, BrowserRouter as Router } from "react-router-dom";
-import Callback from "./auth/Callback";
-import Home from "./pages/Home";
-import "./App.css";
+import React from 'react';
+import { Provider } from 'react-redux';
+import { store } from './state/store';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
+import Callback from './auth/Callback';
+import Home from './pages/Home';
+import './App.css';
 
 function App() {
   return (

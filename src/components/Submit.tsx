@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import theme from "../Theme";
+import React from 'react';
+import styled from 'styled-components';
+import theme from '../Theme';
 
 export interface SubmitProps {
   children?: React.ReactNode;

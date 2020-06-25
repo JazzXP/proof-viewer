@@ -1,4 +1,4 @@
-import theme from "styled-theming";
+import theme from 'styled-theming';
 
 export interface Theme {
   backgroundColour: theme.ThemeSet;
@@ -43,35 +43,35 @@ export interface Theme {
 
 // TODO: Move this to an external JSON file
 export default <Theme>{
-  backgroundColour: theme("mode", { dark: "rgb(255, 255, 255)" }),
+  backgroundColour: theme('mode', { dark: 'rgb(255, 255, 255)' }),
   button: {
-    background: theme("mode", { dark: "rgba(255, 255, 255, 0.2)" }),
-    foreground: theme("mode", { dark: "rgb(255, 255, 255)" }),
+    background: theme('mode', { dark: 'rgba(255, 255, 255, 0.2)' }),
+    foreground: theme('mode', { dark: 'rgb(255, 255, 255)' }),
     pressed: {
-      background: theme("mode", { dark: "rgba(255, 255, 255, 0.4)" }),
+      background: theme('mode', { dark: 'rgba(255, 255, 255, 0.4)' }),
     },
     hover: {
-      background: theme("mode", { dark: "rgba(255, 255, 255, 0.3)" }),
+      background: theme('mode', { dark: 'rgba(255, 255, 255, 0.3)' }),
     },
     disabled: {
-      background: theme("mode", { dark: "rgba(192, 192, 192, 1)" }),
+      background: theme('mode', { dark: 'rgba(192, 192, 192, 1)' }),
     },
   },
   list: {
-    background: theme("mode", { dark: "rgba(255, 255, 255, 0.2)" }),
-    foreground: theme("mode", { dark: "rgb(255, 255, 255)" }),
+    background: theme('mode', { dark: 'rgba(255, 255, 255, 0.2)' }),
+    foreground: theme('mode', { dark: 'rgb(255, 255, 255)' }),
   },
   heading: {
-    foreground: theme("mode", { dark: "rgb(255, 255, 255)" }),
-    font: theme("mode", { dark: "Verdana" }),
+    foreground: theme('mode', { dark: 'rgb(255, 255, 255)' }),
+    font: theme('mode', { dark: 'Verdana' }),
   },
   input: {
-    background: theme("mode", { dark: "rgba(255, 255, 255, 0.2)" }),
-    foreground: theme("mode", { dark: "rgb(255, 255, 255)" }),
-    placeholder: theme("mode", { dark: "rgba(255, 255, 255, 0.6)" }),
+    background: theme('mode', { dark: 'rgba(255, 255, 255, 0.2)' }),
+    foreground: theme('mode', { dark: 'rgb(255, 255, 255)' }),
+    placeholder: theme('mode', { dark: 'rgba(255, 255, 255, 0.6)' }),
   },
   error: {
-    background: theme("mode", { dark: "rgba(255, 128, 128, 0.3)" }),
-    foreground: theme("mode", { dark: "rgb(255, 128, 128)" }),
+    background: theme('mode', { dark: 'rgba(255, 128, 128, 0.3)' }),
+    foreground: theme('mode', { dark: 'rgb(255, 128, 128)' }),
   },
 };

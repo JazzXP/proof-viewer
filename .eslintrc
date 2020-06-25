@@ -1,0 +1,9 @@
+{
+  "extends": [
+    "react-app",
+    "shared-config",
+    "plugin:testing-library/react",
+    "plugin:jest-dom/recommended"
+  ],
+  "plugins": ["testing-library", "jest-dom"]
+}

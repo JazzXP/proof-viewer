@@ -1,6 +1,6 @@
-import React, { createRef } from "react";
-import { ListControl, ListControlProps, IconButton } from "./";
-import { faMinus, faImage } from "@fortawesome/free-solid-svg-icons";
+import React, { createRef } from 'react';
+import { ListControl, ListControlProps, IconButton } from './';
+import { faMinus, faImage } from '@fortawesome/free-solid-svg-icons';
 
 export interface ListControlWithButtonsProps extends ListControlProps {
   onRemove: (item?: string) => void;
@@ -19,22 +19,16 @@ export const ListControlWithButtons = (props: ListControlWithButtonsProps) => {
   return (
     <div
       style={{
-        display: "flex",
-        flexDirection: "row",
-        height: "100%",
-        width: "100%",
+        display: 'flex',
+        flexDirection: 'row',
+        height: '100%',
+        width: '100%',
       }}
     >
       <ListControl ref={ref} items={props.items} />
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        <IconButton
-          icon={faMinus}
-          onClick={() => props.onRemove(getSelectedItem())}
-        />
-        <IconButton
-          icon={faImage}
-          onClick={() => props.onGoTo(getSelectedItem())}
-        />
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <IconButton icon={faMinus} onClick={() => props.onRemove(getSelectedItem())} />
+        <IconButton icon={faImage} onClick={() => props.onGoTo(getSelectedItem())} />
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import theme from "../Theme";
+import styled from 'styled-components';
+import theme from '../Theme';
 
 export const Input = styled.input`
   background: ${theme.input.background};

@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import theme from "../Theme";
+import React from 'react';
+import styled from 'styled-components';
+import theme from '../Theme';
 
 export interface Error {
   error: string;
@@ -15,6 +15,4 @@ const ErrorDiv = styled.div`
   padding: 16px;
 `;
 
-export const Error = (props: Error) => (
-  <ErrorDiv>Error: {props.error}</ErrorDiv>
-);
+export const Error = (props: Error) => <ErrorDiv>Error: {props.error}</ErrorDiv>;

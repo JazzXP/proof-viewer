@@ -1,4 +1,4 @@
-import auth0 from "auth0-js";
+import auth0 from 'auth0-js';
 
 class Auth {
   private auth0: auth0.WebAuth;
@@ -61,8 +61,8 @@ class Auth {
     this.profile = undefined;
     this.expiresAt = undefined;
     this.auth0.logout({
-      returnTo: "http://localhost:3000",
-      clientID: "sjb1mKujy1lWcHdP5ZOrBaqg7HilPBSV",
+      returnTo: 'http://localhost:3000',
+      clientID: 'sjb1mKujy1lWcHdP5ZOrBaqg7HilPBSV',
     });
   }
 }

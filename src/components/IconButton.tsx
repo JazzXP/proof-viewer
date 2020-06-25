@@ -1,8 +1,8 @@
-import React, { ReactChild, MouseEvent, EventHandler } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IconDefinition } from "@fortawesome/fontawesome-common-types";
-import styled from "styled-components";
-import theme from "../Theme";
+import React, { ReactChild, MouseEvent, EventHandler } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconDefinition } from '@fortawesome/fontawesome-common-types';
+import styled from 'styled-components';
+import theme from '../Theme';
 
 export interface IconButtonProps {
   icon: IconDefinition;
@@ -20,7 +20,8 @@ enum buttonState {
 }
 
 const StyledButton = styled.button`
-  border-radius: 5px;
+  border-radius: 3px;
+  border-width: 1px;
   padding: 5px;
   background: ${theme.button.background};
   color: ${theme.button.foreground};

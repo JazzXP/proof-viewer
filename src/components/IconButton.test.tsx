@@ -1,20 +1,20 @@
-import React from "react";
-import { render, fireEvent, screen } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
-import { IconButton } from "./IconButton";
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+import React from 'react';
+import { render, fireEvent, screen } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
+import { IconButton } from './IconButton';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
-test("Renders the IconButton", () => {
+test('Renders the IconButton', () => {
   render(
     <IconButton icon={faCoffee} onClick={() => {}}>
       Test
     </IconButton>
   );
 
-  expect(screen.getByText("Test")).toBeDefined;
+  expect(screen.getByRole('button', { name: /test/i })).toBeInTheDocument();
 });
 
-test("IconButton calls function when clicked", () => {
+test('IconButton calls function when clicked', () => {
   const action = jest.fn();
   render(
     <IconButton
@@ -27,7 +27,7 @@ test("IconButton calls function when clicked", () => {
     </IconButton>
   );
 
-  fireEvent.click(screen.getByText("Test"));
+  fireEvent.click(screen.getByRole('button', { name: /test/i }));
 
   expect(action).toBeCalledTimes(1);
 });

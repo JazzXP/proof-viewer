@@ -1,9 +1,9 @@
-import React, { CSSProperties } from "react";
-import styled from "styled-components";
-import theme from "../Theme";
+import React, { CSSProperties } from 'react';
+import styled from 'styled-components';
+import theme from '../Theme';
 
 export interface HeadingProps {
-  type: "h1" | "h2" | "h3" | "h4" | "h5";
+  type: 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
   style?: CSSProperties;
   children?: React.ReactNode;
 }

@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import logo from "../logo.svg";
-import "../App.css";
-import auth0Client from "../auth/Auth";
+import React, { useEffect } from 'react';
+import logo from '../logo.svg';
+import '../App.css';
+import auth0Client from '../auth/Auth';
 
 const Home = (props: any) => {
   useEffect(() => {
@@ -11,7 +11,7 @@ const Home = (props: any) => {
   }, []);
   const signOut = () => {
     auth0Client.signOut();
-    props.history.replace("/");
+    props.history.replace('/');
   };
 
   return (
@@ -20,9 +20,7 @@ const Home = (props: any) => {
         <img src={logo} className="App-logo" alt="logo" />
         {auth0Client.isAuthenticated() && (
           <div>
-            <label className="mr-2 text-white">
-              {auth0Client.getProfile().name}
-            </label>
+            <label className="mr-2 text-white">{auth0Client.getProfile().name}</label>
             <br />
             <button
               className="btn btn-dark"
