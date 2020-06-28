@@ -11,7 +11,7 @@ import {
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { UserData } from '../state/UserData';
 import { useSelector, useDispatch } from 'react-redux';
-import { addFavourite, addShortlist, removeShortlist, removeFavourite } from '../state';
+import { addFavourite, addShortlist, removeShortlist, removeFavourite, StoreShape } from '../state';
 
 const StyledSection = styled.section`
   display: flex;
@@ -49,10 +49,10 @@ const StyledSectionVertical = styled.section`
 `;
 
 export const Proofs = () => {
-  const shortlist = useSelector<UserData, string[]>((state) => state.shortlist) ?? [];
-  const favlist = useSelector<UserData, string[]>((state) => state.favourites) ?? [];
-  const imageList = useSelector<UserData, string[]>((state) => state.proofs) ?? [];
-  const thumbnailList = useSelector<UserData, string[]>((state) => state.thumbnails) ?? [];
+  const shortlist = useSelector<StoreShape, string[]>((state) => state.userData?.shortlist) ?? [];
+  const favlist = useSelector<StoreShape, string[]>((state) => state.userData?.favourites) ?? [];
+  const imageList = useSelector<StoreShape, string[]>((state) => state.userData?.proofs) ?? [];
+  const thumbnailList = useSelector<StoreShape, string[]>((state) => state.userData?.thumbnails) ?? [];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const dispatch = useDispatch();
 

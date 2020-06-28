@@ -2,6 +2,10 @@ import theme from 'styled-theming';
 
 export interface Theme {
   backgroundColour: theme.ThemeSet;
+  header: {
+    foreground: theme.ThemeSet;
+    background: theme.ThemeSet;
+  };
   button: {
     foreground: theme.ThemeSet;
     background: theme.ThemeSet;
@@ -42,8 +46,12 @@ export interface Theme {
 }
 
 // TODO: Move this to an external JSON file
-export default <Theme>{
-  backgroundColour: theme('mode', { dark: 'rgb(255, 255, 255)' }),
+export default {
+  backgroundColour: theme('mode', { dark: 'rgb(32, 32, 32)' }),
+  header: {
+    foreground: theme('mode', { dark: 'rgb(255,255,255)' }),
+    background: theme('mode', { dark: 'rgb(48, 48, 48)' }),
+  },
   button: {
     background: theme('mode', { dark: 'rgba(255, 255, 255, 0.2)' }),
     foreground: theme('mode', { dark: 'rgb(255, 255, 255)' }),
@@ -74,4 +82,4 @@ export default <Theme>{
     background: theme('mode', { dark: 'rgba(255, 128, 128, 0.3)' }),
     foreground: theme('mode', { dark: 'rgb(255, 128, 128)' }),
   },
-};
+} as Theme;

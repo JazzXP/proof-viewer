@@ -10,3 +10,6 @@ export * from './Submit';
 export * from './BorderForm';
 export * from './ListControlWithButtons';
 export * from './HorizontalThumbnailList';
+export * from './Header';
+export * from './Auth';
+export * from './Button';

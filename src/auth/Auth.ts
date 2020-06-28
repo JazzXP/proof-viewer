@@ -16,30 +16,26 @@ class Auth {
       scope: `${process.env.REACT_APP_AUTH0_SCOPE}`,
     });
 
-    this.getProfile = this.getProfile.bind(this);
-    this.handleAuthentication = this.handleAuthentication.bind(this);
-    this.isAuthenticated = this.isAuthenticated.bind(this);
-    this.signIn = this.signIn.bind(this);
-    this.signOut = this.signOut.bind(this);
+    this.deserialise(localStorage.getItem('profile') ?? '{}');
   }
 
-  getProfile() {
+  getProfile = () => {
     return this.profile;
-  }
+  };
 
-  getIdToken() {
+  getIdToken = () => {
     return this.idToken;
-  }
+  };
 
-  isAuthenticated() {
+  isAuthenticated = () => {
     return new Date().getTime() < (this.expiresAt ?? 0);
-  }
+  };
 
-  signIn() {
+  signIn = () => {
     this.auth0.authorize();
-  }
+  };
 
-  handleAuthentication() {
+  handleAuthentication = () => {
     return new Promise((resolve, reject) => {
       this.auth0.parseHash((err, authResult) => {
         if (err) return reject(err);
@@ -48,14 +44,31 @@ class Auth {
         }
         this.idToken = authResult.idToken;
         this.profile = authResult.idTokenPayload;
+        console.log(authResult);
         // set the time that the id token will expire at
         this.expiresAt = authResult.idTokenPayload.exp * 1000;
+        localStorage.setItem('profile', this.serialise());
         resolve();
       });
     });
-  }
+  };
 
-  signOut() {
+  serialise = () => {
+    return JSON.stringify({
+      ...this.profile,
+      expiresAt: this.expiresAt,
+      idToken: this.idToken,
+    });
+  };
+
+  deserialise = (data: string) => {
+    const { expiresAt, idToken, ...profile } = JSON.parse(data);
+    this.profile = profile;
+    this.expiresAt = expiresAt;
+    this.idToken = idToken;
+  };
+
+  signOut = () => {
     // clear id token, profile, and expiration
     this.idToken = undefined;
     this.profile = undefined;
@@ -64,7 +77,8 @@ class Auth {
       returnTo: 'http://localhost:3000',
       clientID: 'sjb1mKujy1lWcHdP5ZOrBaqg7HilPBSV',
     });
-  }
+    localStorage.removeItem('profile');
+  };
 }
 
 const auth0Client = new Auth();
