@@ -2,12 +2,17 @@
 import React from 'react';
 import { render as rtlRender } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import userDataReducer from '../state/UserData-reducer';
+import { createStore, combineReducers } from 'redux';
+import userData from '../state/UserData-reducer';
+import authData from '../state/AuthData-reducer';
 
 function render(
   ui: React.ReactElement,
-  { initialState = {}, store = createStore(userDataReducer, initialState), ...renderOptions }: any = {}
+  {
+    initialState = {},
+    store = createStore(combineReducers({ userData, authData }), initialState),
+    ...renderOptions
+  }: any = {}
 ) {
   function Wrapper({ children }: { children: React.ReactElement }) {
     return <Provider store={store}>{children}</Provider>;
